@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CH3-4</title>
+  <link rel="stylesheet" href="styles.css">
+ <link rel="icon" type="image/x-icon" href="deltarune.ico">
+</head>
+<body>
+<img style="margin-bottom: 20px;" src="tv.gif" alt="">
+
+  <div id="countdown"></div>
+  <div class="label"></div>
+
+  <script>
+// Establece la fecha en la que cuenta para atrás (lanzamiento de ch3-4)
+const countDownDate = new Date("Jun 5, 2025 00:00:00").getTime();
+
+// Función para actualizar la cuenta cada segundo
+const x = setInterval(function() {
+countdown = document.getElementById("countdown")
+
+  // Saca la fecha y hora actual
+  const now = new Date().getTime();
+
+  // Saca la diferencia entre la fecha del futuro (lanzamiento) y ahora
+  var distance = countDownDate - now;
+
+  // Calcula el tiempo para cada escala (dias, horas, minutos y segundos)
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  //Muestran los valores (dias, horas, minutos y segundos) en el HTML
+  countdown.innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+
+  //Cuando la cuenta termine, muestra el texto
+  if (distance < 0) {
+    clearInterval(x);
+    countdown.innerHTML = "LLEGO EL MOMENTO.";
+  }
+}, 1000); //El 1000 son los milisegundos
+  </script>
+
+</body>
+</html>
